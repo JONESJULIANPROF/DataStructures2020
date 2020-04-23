@@ -1,0 +1,8 @@
+Jarod 10 40
+Tracy 15 35
+David 12 40
+Emma 20 40
+Jeremy 12 30
+John 11 40
+Amiya 12 30
+Dylan 20 30
