@@ -1,0 +1,31 @@
+Sample values bill = 100
+Pay 100
+credit 1
+bill = bill - credit - payment
+remaining balance = -1
+apply penalty after payment
+
+Pay 60
+penalty = 5 (100 * .05)
+bill = bill + penalty - payment
+remaining balance 42
+
+Pay 20
+penalty = 8
+bill = bill + penalty - payment
+remaining balance 88
+
+algorithm
+1. input bill and pay
+2. if(pay >= bill)
+	credit = smaller of 10, bill * .1
+	bill = bill - credit - payment
+   else if(pay >= bill / 2)
+	penalty = bill * .05;
+	bill = bill + penalty - pay
+   else if(pay >= bill * .2 && pay < bill / 2)
+
+   else if(pay > 0 && pay < bill * .2)
+
+   else
+	something bad, die

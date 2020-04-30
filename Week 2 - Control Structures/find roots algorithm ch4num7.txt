@@ -1,0 +1,28 @@
+x^2 + 4x + 4  one real root (-2)
+(x + 2)^2
+a=1
+b=4
+c=4
+
+x^2 -x - 2 two real root
+(x + 1)(x - 2)  roots -1, 2
+a=1
+b=-1
+c=-2
+
+x^2 + x + 5000 no real roots
+
+Steps to code == algorithm to find roots
+1. input a, b, c
+2. find discriminant
+3. if(disc == 0)
+	calc the root
+   if(disc > 0)
+	calc both roots
+   if(disc < 0)
+	display no real roots
+
+
+
+
+
