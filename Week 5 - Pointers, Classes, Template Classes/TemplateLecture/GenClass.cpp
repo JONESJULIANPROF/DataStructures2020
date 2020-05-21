@@ -1,0 +1,1 @@
+#include "GenClass.h"

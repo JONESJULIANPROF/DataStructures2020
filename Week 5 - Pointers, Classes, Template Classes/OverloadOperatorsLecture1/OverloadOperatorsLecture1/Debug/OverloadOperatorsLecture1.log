@@ -1,6 +1,0 @@
-﻿  FoodItem.cpp
-C:\Users\lee_c\source\DataStructures\Week 5 - Pointers and Overloaded Operators\OverloadOperatorsLecture1\OverloadOperatorsLecture1\FoodItem.cpp(138,36): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
-  OverloadOperatorsLecture1.cpp
-C:\Users\lee_c\source\DataStructures\Week 5 - Pointers and Overloaded Operators\OverloadOperatorsLecture1\OverloadOperatorsLecture1\OverloadOperatorsLecture1.cpp(22,7): warning C4552: '+': result of expression not used
-  Generating Code...
-  OverloadOperatorsLecture1.vcxproj -> C:\Users\lee_c\source\DataStructures\Week 5 - Pointers and Overloaded Operators\OverloadOperatorsLecture1\Debug\OverloadOperatorsLecture1.exe
