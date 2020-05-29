@@ -176,6 +176,8 @@ public:
     virtual void deleteSmallest() = 0;//Cottrell added
     //virtual means MUST implement in all child classes
 
+    void divideMid(linkedListType<Type>& sublist);//Cottrell added 5-28-2020
+
     linkedListIterator<Type> begin();
       //Function to return an iterator at the begining of 
       //the linked list.
@@ -287,6 +289,54 @@ Type linkedListType<Type>::back() const
 
     return last->info; //return the info of the last node	
 }//end back
+
+//cottrell this is assignment number X
+template<class Type>
+void linkedListType<Type>::divideMid(linkedListType<Type>& sublist)
+{
+    if (this->first == nullptr) {
+        cout << "Cannot split an empty list\n";
+        return;
+    }
+    if (sublist.first != nullptr) {
+        sublist.destroyList();
+        //kill a full list
+    }
+    int midpointNum = ceil(this->count / 2.0);
+    nodeType<Type>* midpointNode = this->first;
+
+    //current = current->link;
+    for (int x = 1; x < midpointNum; x++) {
+        midpointNode = midpointNode->link;
+    }
+    //midpointNode now is a the middle node
+    //build the sublist
+    sublist.count = this->count - midpointNum;
+    sublist.first = midpointNode->link;
+    sublist.last = this->last;
+    
+    //rebuild the original list
+    midpointNode->link = nullptr;
+    this->last = midpointNode;
+    this->count = midpointNum;
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 template <class Type>
 linkedListIterator<Type> linkedListType<Type>::begin()

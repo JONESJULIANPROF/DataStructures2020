@@ -1,0 +1,39 @@
+template<class Type>
+void orderedLinkedList<Type>::mergeLists(orderedLinkedList<Type>& list1, orderedLinkedList<Type>& list2)
+{
+	
+	nodeType<Type>* current = list1.first;
+		
+	if (list1.first == nullptr && list2.first == nullptr) {
+		return;//both empty
+	}
+
+	else if (list1.first == nullptr) {
+		//second list is the new list, no sense merging
+		this->first = list2.first;
+		this->count = list2.count;
+		//if you want to erase original list
+		list2.first = nullptr;
+		return;
+	}
+	else if (list2.first == nullptr) {
+		//first list is the new list, no sense merging
+		this->first = list1.first;
+		this->count = list1.count;
+		//if you want to erase original list
+		list1.first = nullptr;
+		return;
+	}
+
+	//neither list is empty
+	this->initializeList();
+	
+	this->copyList(list1);
+	current = list2.first;
+	
+	 while (current != nullptr){
+		this->insert(current->info);
+		current = current->link;
+	}
+return;
+}

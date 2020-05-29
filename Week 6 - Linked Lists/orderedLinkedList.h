@@ -47,6 +47,8 @@ public:
       //               If deleteItem is not in the list, an
       //               appropriate message is printed.
     void deleteSmallest();//Cottrell added
+
+    void mergeLists(orderedLinkedList<Type>& list1, orderedLinkedList<Type>& list2);
 };//end of class
 
 
@@ -237,6 +239,82 @@ void orderedLinkedList<Type>::deleteSmallest()
     }//end else
     delete small;   //delete kills pointers in C++
     this->count--;  //subtract the one from count
+}
+
+template<class Type>
+void orderedLinkedList<Type>::mergeLists(orderedLinkedList<Type>& list1, orderedLinkedList<Type>& list2)
+{
+    nodeType<Type>* newLast;//the last node of the new list
+    nodeType<Type>* current1 = list1.first;
+    nodeType<Type>* current2 = list2.first;
+
+    this->initializeList();
+
+    if (list1.first == nullptr && list2.first == nullptr) {
+        return;//cannot merge two empty lists
+    }
+    else if (list1.first == nullptr) {//first list is empty
+        //newlist is just the second list
+        this->first = list2.first;
+        this->count = list2.count;
+        list2.destroyList();//kill the list - optional
+        return;
+    }
+    else if (list2.first == nullptr) {
+        this->first = list1.first;
+        this->count = list1.count;
+        list1.destroyList();//kill the list - optional
+        return;
+    }
+
+    //neither list is empty
+    
+    //find the beginning of the new list
+    //smaller of the two list first positions
+    if (current1->info < current2->info) {
+        this->first = current1;
+        current1 = current1->link;
+        newLast = this->first;
+    }
+    else {
+        this->first = current2;
+        current2 = current2->link;
+        newLast = this->first;
+    }
+
+    //walk through both lists, 
+    //moving the smallest of the current two items into the new list
+    while (current1 != nullptr && current2 != nullptr) {
+        if (current1->info < current2->info) {
+            //move current1's info into the list
+            newLast->link = current1;
+            newLast = current1;//newlast = current1 works as well
+            current1 = current1->link;//walk to the next item in list1
+        }
+        else {
+            //move current2's info into the list
+            newLast->link = current2;
+            newLast = current2;//newlast = current2 works as well
+            current2 = current2->link;//walk to the next item in list1
+        }
+    }//end while
+
+    //got to the end of one list, must handle the end of the new list
+    if (current1 == nullptr) {
+        newLast->link = current2;
+    }
+    else{
+        newLast->link = current1;
+    }
+    this->last = newLast;
+    this->count = list1.count + list2.count;
+    list2.first = nullptr;
+    list1.last = nullptr;
+    list2.first = nullptr;
+    list2.last = nullptr;
+    //clear original lists
+   // list1.destroyList();
+    //list2.destroyList();
 }
 
 #endif
