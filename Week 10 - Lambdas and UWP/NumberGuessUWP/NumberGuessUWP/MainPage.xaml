@@ -1,0 +1,20 @@
+﻿<Page
+    x:Class="NumberGuessUWP.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:NumberGuessUWP"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <TextBlock HorizontalAlignment="Center" Margin="0,10,0,0" Text="Number Guess!" TextWrapping="Wrap" VerticalAlignment="Top" Width="1440" FontSize="72" TextAlignment="Center"/>
+        <TextBlock HorizontalAlignment="Left" Margin="48,142,0,0" Text="Enter a number between 1 and 100" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="36"/>
+        <TextBox x:Name="guessBox" HorizontalAlignment="Left" Margin="665,136,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="36" Width="222"/>
+        <Button x:Name="guessButton" Content="Guess!" Margin="48,241,0,0" VerticalAlignment="Top" Height="187" Width="304" FontSize="36" Click="guessButton_Click"/>
+        <TextBlock x:Name="responseBlock" HorizontalAlignment="Left" Margin="48,461,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Height="52" Width="840" FontSize="36"/>
+        <Button x:Name="newGameButton" Content="New Game" Margin="48,241,0,0" VerticalAlignment="Top" Width="304" Height="187" FontSize="36" Click="newGameButton_Click" Visibility="Collapsed"/>
+
+    </Grid>
+</Page>
